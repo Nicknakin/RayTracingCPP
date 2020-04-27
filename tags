@@ -1,0 +1,74 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+${OBJ_DIR}/%.o	makefile	/^${OBJ_DIR}\/%.o: ${SRC_DIR}\/%.cpp $/;"	t
+${TEST_OUT_DIR}/%.test	makefile	/^${TEST_OUT_DIR}\/%.test: ${OBJ_FILES} ${TEST_DIR}\/%.cpp $/;"	t
+BRACKET_STYLE	makefile	/^BRACKET_STYLE=java$/;"	m
+BUILD_DIR	makefile	/^BUILD_DIR=.\/build$/;"	m
+CXX	makefile	/^CXX=g++$/;"	m
+LDLIBS	makefile	/^LDLIBS=-lsfml-graphics -lsfml-window -lsfml-system -pthread$/;"	m
+OBJ_DIR	makefile	/^OBJ_DIR=.\/obj$/;"	m
+OBJ_FILES	makefile	/^OBJ_FILES := $(patsubst $(SRC_DIR)\/%.cpp,$(OBJ_DIR)\/%.o,$(SRC_FILES))$/;"	m
+OUTPUT	makefile	/^OUTPUT=NoiseDisplay$/;"	m
+Ray	include/ray.h	/^class Ray {$/;"	c
+Ray_inc	include/ray.h	/^#define Ray_inc$/;"	d
+SRC_DIR	makefile	/^SRC_DIR=.\/src$/;"	m
+SRC_FILES	makefile	/^SRC_FILES := $(wildcard $(SRC_DIR)\/*.cpp)$/;"	m
+TEST_DIR	makefile	/^TEST_DIR=.\/tests$/;"	m
+TEST_FILES	makefile	/^TEST_FILES := $(wildcard $(TEST_DIR)\/*.cpp)$/;"	m
+TEST_OUT	makefile	/^TEST_OUT := $(patsubst $(TEST_DIR)\/%.cpp,$(TEST_DIR)\/bin\/%.test,$(TEST_FILES))$/;"	m
+TEST_OUT_DIR	makefile	/^TEST_OUT_DIR=.\/tests\/bin$/;"	m
+Vector	include/Vector.h	/^class Vector {$/;"	c
+Vector	src/Vector.cpp	/^Vector::Vector(): Vector{0f,0f,0f}{$/;"	f	class:Vector
+Vector	src/Vector.cpp	/^Vector::Vector(const Vector& v): x{v.x}, y{v.y}, z{v.z} {$/;"	f	class:Vector
+Vector	src/Vector.cpp	/^Vector::Vector(float x, float y, float z): x{x}, y{y}, z{z} {$/;"	f	class:Vector
+Vector.cpp	src/Vector.cpp	1;"	F
+Vector.h	include/Vector.h	1;"	F
+Vector_inc	include/Vector.h	/^#define Vector_inc$/;"	d
+all	makefile	/^all: clientprepender client$/;"	t
+clean	makefile	/^clean:$/;"	t
+client	makefile	/^client: ${OBJ_FILES}$/;"	t
+clientprepender	makefile	/^clientprepender: $/;"	t
+debug	makefile	/^debug: CXXFLAGS+=-g $/;"	t
+debug	makefile	/^debug: clean all $/;"	t
+mag	src/Vector.cpp	/^float Vector::mag(){$/;"	f	class:Vector	typeref:typename:float
+magSq	src/Vector.cpp	/^float Vector::magSq(){$/;"	f	class:Vector	typeref:typename:float
+magn	include/Vector.h	/^        float magn=-1, magsq=-1;$/;"	m	class:Vector	typeref:typename:float
+magsq	include/Vector.h	/^        float magn=-1, magsq=-1;$/;"	m	class:Vector	typeref:typename:float
+main	src/main.cpp	/^int main(int argc, char** argv) {$/;"	f	typeref:typename:int
+main.cpp	src/main.cpp	1;"	F
+makefile	makefile	1;"	F
+normalize	src/Vector.cpp	/^Vector Vector::normalize() {$/;"	f	class:Vector	typeref:typename:Vector
+operator %	src/Vector.cpp	/^Vector Vector::operator%(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector
+operator %=	src/Vector.cpp	/^Vector& Vector::operator%=(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector &
+operator *	src/Vector.cpp	/^float Vector::operator*(Vector& v){$/;"	f	class:Vector	typeref:typename:float
+operator +	src/Vector.cpp	/^Vector Vector::operator+(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector
+operator +	src/Vector.cpp	/^Vector Vector::operator+(float& f){$/;"	f	class:Vector	typeref:typename:Vector
+operator +=	src/Vector.cpp	/^Vector& Vector::operator+=(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector &
+operator +=	src/Vector.cpp	/^Vector& Vector::operator+=(float& f){$/;"	f	class:Vector	typeref:typename:Vector &
+operator -	src/Vector.cpp	/^Vector Vector::operator-(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector
+operator -	src/Vector.cpp	/^Vector Vector::operator-(float& f){$/;"	f	class:Vector	typeref:typename:Vector
+operator -=	src/Vector.cpp	/^Vector& Vector::operator-=(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector &
+operator -=	src/Vector.cpp	/^Vector& Vector::operator-=(float& f){$/;"	f	class:Vector	typeref:typename:Vector &
+operator <	src/Vector.cpp	/^bool Vector::operator<(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
+operator <<	src/Vector.cpp	/^std::ostream& operator<<(std::ostream &os, const Vector &v){$/;"	f	typeref:typename:std::ostream &
+operator <=	src/Vector.cpp	/^bool Vector::operator<=(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
+operator ==	src/Vector.cpp	/^bool Vector::operator==(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
+operator >	src/Vector.cpp	/^bool Vector::operator>(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
+operator >=	src/Vector.cpp	/^bool Vector::operator>=(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
+preprocess	makefile	/^preprocess: CXXFLAGS+=-E$/;"	t
+preprocess	makefile	/^preprocess: default$/;"	t
+prettify	makefile	/^prettify:$/;"	t
+ray.h	include/ray.h	1;"	F
+reflectivity	include/ray.h	/^        float reflectivity;$/;"	m	class:Ray	typeref:typename:float
+smoothness	include/ray.h	/^        float smoothness;$/;"	m	class:Ray	typeref:typename:float
+test	makefile	/^test: ${TEST_OUT}	$/;"	t
+x	include/Vector.h	/^        float x, y, z;$/;"	m	class:Vector	typeref:typename:float
+y	include/Vector.h	/^        float x, y, z;$/;"	m	class:Vector	typeref:typename:float
+z	include/Vector.h	/^        float x, y, z;$/;"	m	class:Vector	typeref:typename:float
+~Vector	src/Vector.cpp	/^Vector::~Vector(){$/;"	f	class:Vector
