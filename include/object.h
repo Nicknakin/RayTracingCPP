@@ -12,6 +12,7 @@ class Object {
         virtual bool intersects(Vector rayOrigin, Vector rayDir);
 
         const Vector pos;
+        const Color surfaceColor;
         const float rad, radsq;
         const float transparent, reflect, diffuse;
 };

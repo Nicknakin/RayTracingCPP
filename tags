@@ -11,12 +11,16 @@ ${TEST_OUT_DIR}/%.test	makefile	/^${TEST_OUT_DIR}\/%.test: ${OBJ_FILES} ${TEST_D
 BRACKET_STYLE	makefile	/^BRACKET_STYLE=java$/;"	m
 BUILD_DIR	makefile	/^BUILD_DIR=.\/build$/;"	m
 CXX	makefile	/^CXX=g++$/;"	m
-LDLIBS	makefile	/^LDLIBS=-lsfml-graphics -lsfml-window -lsfml-system -pthread$/;"	m
+Color	include/color.h	/^typedef color Color;$/;"	t	typeref:typename:color
+Color_inc	include/color.h	/^#define Color_inc$/;"	d
+LDLIBS	makefile	/^LDLIBS=`libpng-config --ldflags` -lsfml-graphics -lsfml-window -lsfml-system -pthread$/;"	m
+Light	include/light.h	/^class Light {$/;"	c
+Light_inc	include/light.h	/^#define Light_inc$/;"	d
 OBJ_DIR	makefile	/^OBJ_DIR=.\/obj$/;"	m
 OBJ_FILES	makefile	/^OBJ_FILES := $(patsubst $(SRC_DIR)\/%.cpp,$(OBJ_DIR)\/%.o,$(SRC_FILES))$/;"	m
 OUTPUT	makefile	/^OUTPUT=NoiseDisplay$/;"	m
-Ray	include/ray.h	/^class Ray {$/;"	c
-Ray_inc	include/ray.h	/^#define Ray_inc$/;"	d
+Object	include/object.h	/^class Object {$/;"	c
+Object_inc	include/object.h	/^#define Object_inc$/;"	d
 SRC_DIR	makefile	/^SRC_DIR=.\/src$/;"	m
 SRC_FILES	makefile	/^SRC_FILES := $(wildcard $(SRC_DIR)\/*.cpp)$/;"	m
 TEST_DIR	makefile	/^TEST_DIR=.\/tests$/;"	m
@@ -24,18 +28,28 @@ TEST_FILES	makefile	/^TEST_FILES := $(wildcard $(TEST_DIR)\/*.cpp)$/;"	m
 TEST_OUT	makefile	/^TEST_OUT := $(patsubst $(TEST_DIR)\/%.cpp,$(TEST_DIR)\/bin\/%.test,$(TEST_FILES))$/;"	m
 TEST_OUT_DIR	makefile	/^TEST_OUT_DIR=.\/tests\/bin$/;"	m
 Vector	include/Vector.h	/^class Vector {$/;"	c
-Vector	src/Vector.cpp	/^Vector::Vector(): Vector{0f,0f,0f}{$/;"	f	class:Vector
+Vector	src/Vector.cpp	/^Vector::Vector(): Vector{0.f,0.f,0.f}{$/;"	f	class:Vector
 Vector	src/Vector.cpp	/^Vector::Vector(const Vector& v): x{v.x}, y{v.y}, z{v.z} {$/;"	f	class:Vector
 Vector	src/Vector.cpp	/^Vector::Vector(float x, float y, float z): x{x}, y{y}, z{z} {$/;"	f	class:Vector
 Vector.cpp	src/Vector.cpp	1;"	F
 Vector.h	include/Vector.h	1;"	F
 Vector_inc	include/Vector.h	/^#define Vector_inc$/;"	d
+a	include/color.h	/^    uint8_t r,g,b,a=0xFF;$/;"	m	struct:color	typeref:typename:uint8_t
 all	makefile	/^all: clientprepender client$/;"	t
+b	include/color.h	/^    uint8_t r,g,b,a=0xFF;$/;"	m	struct:color	typeref:typename:uint8_t
 clean	makefile	/^clean:$/;"	t
 client	makefile	/^client: ${OBJ_FILES}$/;"	t
 clientprepender	makefile	/^clientprepender: $/;"	t
+color	include/color.h	/^struct color {$/;"	s
+color.cpp	src/color.cpp	1;"	F
+color.h	include/color.h	1;"	F
 debug	makefile	/^debug: CXXFLAGS+=-g $/;"	t
 debug	makefile	/^debug: clean all $/;"	t
+diffuse	include/object.h	/^        const float transparent, reflect, diffuse;$/;"	m	class:Object	typeref:typename:const float
+g	include/color.h	/^    uint8_t r,g,b,a=0xFF;$/;"	m	struct:color	typeref:typename:uint8_t
+gradient	src/color.cpp	/^Color gradient(Color c1, Color c2, float perc){$/;"	f	typeref:typename:Color
+grayscale	src/color.cpp	/^Color grayscale(Color c){$/;"	f	typeref:typename:Color
+light.h	include/light.h	1;"	F
 mag	src/Vector.cpp	/^float Vector::mag(){$/;"	f	class:Vector	typeref:typename:float
 magSq	src/Vector.cpp	/^float Vector::magSq(){$/;"	f	class:Vector	typeref:typename:float
 magn	include/Vector.h	/^        float magn=-1, magsq=-1;$/;"	m	class:Vector	typeref:typename:float
@@ -44,6 +58,7 @@ main	src/main.cpp	/^int main(int argc, char** argv) {$/;"	f	typeref:typename:int
 main.cpp	src/main.cpp	1;"	F
 makefile	makefile	1;"	F
 normalize	src/Vector.cpp	/^Vector Vector::normalize() {$/;"	f	class:Vector	typeref:typename:Vector
+object.h	include/object.h	1;"	F
 operator %	src/Vector.cpp	/^Vector Vector::operator%(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector
 operator %=	src/Vector.cpp	/^Vector& Vector::operator%=(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector &
 operator *	src/Vector.cpp	/^float Vector::operator*(Vector& v){$/;"	f	class:Vector	typeref:typename:float
@@ -55,19 +70,24 @@ operator -	src/Vector.cpp	/^Vector Vector::operator-(Vector& v){$/;"	f	class:Vec
 operator -	src/Vector.cpp	/^Vector Vector::operator-(float& f){$/;"	f	class:Vector	typeref:typename:Vector
 operator -=	src/Vector.cpp	/^Vector& Vector::operator-=(Vector& v){$/;"	f	class:Vector	typeref:typename:Vector &
 operator -=	src/Vector.cpp	/^Vector& Vector::operator-=(float& f){$/;"	f	class:Vector	typeref:typename:Vector &
-operator <	src/Vector.cpp	/^bool Vector::operator<(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
+operator <	src/Vector.cpp	/^bool Vector::operator<(Vector& v){$/;"	f	class:Vector	typeref:typename:bool
 operator <<	src/Vector.cpp	/^std::ostream& operator<<(std::ostream &os, const Vector &v){$/;"	f	typeref:typename:std::ostream &
-operator <=	src/Vector.cpp	/^bool Vector::operator<=(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
-operator ==	src/Vector.cpp	/^bool Vector::operator==(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
-operator >	src/Vector.cpp	/^bool Vector::operator>(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
-operator >=	src/Vector.cpp	/^bool Vector::operator>=(const Vector& v) const{$/;"	f	class:Vector	typeref:typename:bool
+operator <<	src/color.cpp	/^std::ostream& operator<<(std::ostream& os, const Color& col){$/;"	f	typeref:typename:std::ostream &
+operator <=	src/Vector.cpp	/^bool Vector::operator<=(Vector& v){$/;"	f	class:Vector	typeref:typename:bool
+operator ==	src/Vector.cpp	/^bool Vector::operator==(Vector& v){$/;"	f	class:Vector	typeref:typename:bool
+operator >	src/Vector.cpp	/^bool Vector::operator>(Vector& v){$/;"	f	class:Vector	typeref:typename:bool
+operator >=	src/Vector.cpp	/^bool Vector::operator>=(Vector& v){$/;"	f	class:Vector	typeref:typename:bool
+pos	include/object.h	/^        const Vector pos;$/;"	m	class:Object	typeref:typename:const Vector
 preprocess	makefile	/^preprocess: CXXFLAGS+=-E$/;"	t
 preprocess	makefile	/^preprocess: default$/;"	t
 prettify	makefile	/^prettify:$/;"	t
-ray.h	include/ray.h	1;"	F
-reflectivity	include/ray.h	/^        float reflectivity;$/;"	m	class:Ray	typeref:typename:float
-smoothness	include/ray.h	/^        float smoothness;$/;"	m	class:Ray	typeref:typename:float
+r	include/color.h	/^    uint8_t r,g,b,a=0xFF;$/;"	m	struct:color	typeref:typename:uint8_t
+rad	include/object.h	/^        const float rad, radsq;$/;"	m	class:Object	typeref:typename:const float
+radsq	include/object.h	/^        const float rad, radsq;$/;"	m	class:Object	typeref:typename:const float
+reflect	include/object.h	/^        const float transparent, reflect, diffuse;$/;"	m	class:Object	typeref:typename:const float
 test	makefile	/^test: ${TEST_OUT}	$/;"	t
+toPixel	src/color.cpp	/^png::rgba_pixel toPixel(Color c){$/;"	f	typeref:typename:png::rgba_pixel
+transparent	include/object.h	/^        const float transparent, reflect, diffuse;$/;"	m	class:Object	typeref:typename:const float
 x	include/Vector.h	/^        float x, y, z;$/;"	m	class:Vector	typeref:typename:float
 y	include/Vector.h	/^        float x, y, z;$/;"	m	class:Vector	typeref:typename:float
 z	include/Vector.h	/^        float x, y, z;$/;"	m	class:Vector	typeref:typename:float
