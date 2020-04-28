@@ -2,20 +2,18 @@
 #define Sphere_inc
 
 #include "Vector.h"
-#include "Object.h"
+#include "color.h"
+#include "object.h"
 
 class Sphere: public Object {
     public:
         Sphere();
-        ~Sphere();
-        
-        float[2] distance(Vector rayOrigin, Vector rayDir);
+        Sphere(Vector pos, Color col, float rad, float transparent, float reflect, float diffuse);
+
+        std::array<float, 2> distance(Vector rayOrigin, Vector rayDir);
         bool intersects(Vector rayOrigin, Vector rayDir);
 
-        const Vector pos;
-        const Color surfaceColor;
-        const float rad, radsq;
-        const float transparent, reflect, diffuse;
+        float rad, radsq;
 };
 
 #endif

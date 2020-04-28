@@ -39,19 +39,19 @@ std::ostream& operator<<(std::ostream &os, const Vector &v){
     return os << "{" << v.x << "," << v.y << "," << v.z << "}";
 }
 
-float Vector::operator*(Vector& v){
+float Vector::operator*(const Vector& v){
     return x*v.x + y*v.y + z*v.z; 
 }
 
-Vector Vector::operator+(Vector& v){
+Vector Vector::operator+(const Vector& v){
     return Vector{x + v.x, y + v.y, z + v.z};
 }
 
-Vector Vector::operator-(Vector& v){
+Vector Vector::operator-(const Vector& v){
     return Vector{x - v.x, y - v.y, z - v.z};
 }
 
-Vector& Vector::operator+=(Vector& v){
+Vector& Vector::operator+=(const Vector& v){
     x += v.x;
     y += v.y;
     z += v.z;
@@ -59,7 +59,7 @@ Vector& Vector::operator+=(Vector& v){
     return *this;
 }
 
-Vector& Vector::operator-=(Vector& v){
+Vector& Vector::operator-=(const Vector& v){
     x -= v.x;
     y -= v.y;
     z -= v.z;
@@ -67,11 +67,11 @@ Vector& Vector::operator-=(Vector& v){
     return *this;
 }
 
-Vector Vector::operator%(Vector& v){
+Vector Vector::operator%(const Vector& v){
     return Vector{y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x};
 }
 
-Vector& Vector::operator%=(Vector& v){
+Vector& Vector::operator%=(const Vector& v){
     auto tempx = y*v.z - z*v.y;
     auto tempy = z*v.x - x*v.z;
     auto tempz = x*v.y - y*v.x;
@@ -83,15 +83,15 @@ Vector& Vector::operator%=(Vector& v){
 }
 
 
-Vector Vector::operator+(float& f){
+Vector Vector::operator+(const float& f){
     return Vector{x+f, y+f, z+f};
 }
 
-Vector Vector::operator-(float& f){
+Vector Vector::operator-(const float& f){
     return Vector{x-f, y-f, z-f};
 }
 
-Vector& Vector::operator+=(float& f){
+Vector& Vector::operator+=(const float& f){
     x+=f;
     y+=f;
     z+=f;
@@ -99,7 +99,7 @@ Vector& Vector::operator+=(float& f){
     return *this;
 }
 
-Vector& Vector::operator-=(float& f){
+Vector& Vector::operator-=(const float& f){
     x-=f;
     y-=f;
     z-=f;

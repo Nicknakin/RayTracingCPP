@@ -16,17 +16,17 @@ class Vector {
         ~Vector();
         
         friend std::ostream& operator<<(std::ostream &os, const Vector &v);
-        float operator*(Vector&);
-        Vector operator+(Vector&);
-        Vector operator-(Vector&);
-        Vector& operator+=(Vector&);
-        Vector& operator-=(Vector&);
-        Vector operator%(Vector&);
-        Vector& operator%=(Vector&);
-        Vector operator+(float&);
-        Vector operator-(float&);
-        Vector& operator+=(float&);
-        Vector& operator-=(float&);
+        float operator*(const Vector&);
+        Vector operator+(const Vector&);
+        Vector operator-(const Vector&);
+        Vector& operator+=(const Vector&);
+        Vector& operator-=(const Vector&);
+        Vector operator%(const Vector&);
+        Vector& operator%=(const Vector&);
+        Vector operator+(const float&);
+        Vector operator-(const float&);
+        Vector& operator+=(const float&);
+        Vector& operator-=(const float&);
         bool operator<(Vector&);
         bool operator<=(Vector&);
         bool operator>(Vector&);
